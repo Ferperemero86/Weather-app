@@ -1,0 +1,30 @@
+<% include header %>
+
+<h1>Check the weather in any city</h1>
+<img src="images/sun.png"/>
+
+<form action="/" method="post">
+    <fieldset>
+        <input type="text" name="postCode" placeholder="Insert a city"
+         autofocus required>
+        <button>Send</button>
+    </fieldset>
+</form>
+<div class="error-message">
+    <% if (locals.error) { %>
+        <%= error %>
+    <% } %>
+</div>
+<div  class="weather-display">
+    <% if (locals.temp) { %>
+        <div><span>Summary:</span> <%= sum %></div>
+        <div><span>Temperature:</span> <%= temp %> &#176c</div>
+        <div><span>Prob.rain:</span> <%= precip %> %</div>
+        <div><span>Humidity:</span> <%= humidity %> %</div>
+    <% } %>
+</div>
+
+<% include footer %>
+
+
+
