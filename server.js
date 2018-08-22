@@ -8,7 +8,7 @@ const app = express();
 const weather = new ForecastIo('29ee716c4106fd41c688faf9d89e9be8'); 
 
 app.set('view engine', 'ejs');
-app.set(path.resolve(__dirname + '/views'));
+app.set(path.join(__dirname + '/views'));
 
 //Global array to store results from Post
 let entries = [];
