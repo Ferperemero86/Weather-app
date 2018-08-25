@@ -4,11 +4,13 @@ const ForecastIo = require('forecastio');
 const parser = require('body-parser');
 const cityCoords = require('city-to-coords');
 
+//Set a enviroment variable
+const port  = process.env.PORT || 3000;
 const app = express();
 const weather = new ForecastIo('29ee716c4106fd41c688faf9d89e9be8'); 
 
 app.set('view engine', 'ejs');
-app.set(path.join(__dirname + '/views'));
+app.set(path.resolve(__dirname + '/views'));
 
 //Global array to store results from Post
 let entries = [];
@@ -70,4 +72,4 @@ app.use(function(req, res) {
   res.status(404).render("404");
 });
 
-app.listen(3000);
+app.listen(port);
